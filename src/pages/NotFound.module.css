@@ -1,0 +1,42 @@
+.page {
+  min-height: 80svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-h) + 48px) 0 80px;
+}
+
+.prompt,
+.error {
+  font-family: var(--mono);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.prompt span {
+  color: var(--accent);
+}
+
+.error {
+  margin-top: 6px;
+  color: #e5484d;
+}
+
+.title {
+  margin-top: 32px;
+  font-size: clamp(40px, 7vw, 84px);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+}
+
+.home {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  margin-top: 36px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 500;
+}

@@ -1,0 +1,86 @@
+.frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 6px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 40%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 40px 120px -40px rgba(0, 0, 0, 0.9);
+}
+
+.inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--radius-lg) - 6px);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 40px;
+  padding-inline: 16px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+}
+
+.small .bar {
+  height: 32px;
+  padding-inline: 12px;
+}
+
+.dots {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.dots span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #3a3a40;
+}
+
+.dots span:nth-child(1) {
+  background: #ff5f57;
+}
+
+.dots span:nth-child(2) {
+  background: #febc2e;
+}
+
+.dots span:nth-child(3) {
+  background: #28c840;
+}
+
+.small .dots span {
+  width: 9px;
+  height: 9px;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--faint);
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 44px;
+}
+
+.status {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.status::before {
+  content: "● ";
+}

@@ -1,0 +1,78 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: clamp(56px, 8vw, 96px) 0 40px;
+}
+
+.columns {
+  display: flex;
+  gap: clamp(48px, 10vw, 120px);
+}
+
+.heading {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 20px;
+}
+
+.columns ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.columns a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 17px;
+  transition: color 0.3s;
+}
+
+.columns a:hover {
+  color: var(--accent-strong);
+}
+
+.bottom {
+  margin-top: clamp(56px, 8vw, 88px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.copyright {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.note {
+  margin-top: 4px;
+  font-size: 15px;
+  color: var(--faint);
+}
+
+.signature {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--faint);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cursor {
+  width: 7px;
+  height: 15px;
+  background: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  55% {
+    opacity: 0;
+  }
+}

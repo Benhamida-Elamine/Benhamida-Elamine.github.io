@@ -1,0 +1,376 @@
+.visual {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  padding: clamp(14px, 3vw, 32px);
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(155, 123, 255, 0.1), transparent 60%),
+    var(--bg-elev);
+  font-family: var(--mono);
+  overflow: hidden;
+}
+
+.caption {
+  position: absolute;
+  left: clamp(14px, 3vw, 32px);
+  right: clamp(14px, 3vw, 32px);
+  bottom: clamp(10px, 2vw, 18px);
+  font-size: 11px;
+  color: var(--faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- IoT ---------- */
+.iot {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: clamp(8px, 1.6vw, 16px);
+  padding-bottom: 22px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(6px, 1.2vw, 12px);
+}
+
+.tile {
+  padding: clamp(8px, 1.4vw, 14px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tile span {
+  font-size: clamp(9px, 1.1vw, 11px);
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tile strong {
+  font-family: var(--sans);
+  font-size: clamp(13px, 2vw, 22px);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.chart {
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: clamp(8px, 1.4vw, 14px);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.chartHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: clamp(9px, 1.1vw, 11px);
+  color: var(--faint);
+}
+
+.legend {
+  display: flex;
+  gap: 10px;
+}
+
+.legend i {
+  font-style: normal;
+  color: hsl(calc(255 + var(--i) * 18) 90% calc(70% + var(--i) * 4%));
+}
+
+.lines {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  margin-top: 6px;
+}
+
+.grid {
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.line {
+  fill: none;
+  stroke: hsl(calc(255 + var(--i) * 18) 90% calc(70% + var(--i) * 4%));
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+
+/* Lines are drawn left to right by un-clipping the whole chart. */
+.lines,
+.component svg {
+  clip-path: inset(0 100% 0 0);
+}
+
+.play .lines,
+.play .component svg {
+  animation: draw 2.4s var(--ease-out) forwards;
+}
+
+.play .component svg {
+  animation-duration: 1.8s;
+  animation-delay: calc(var(--i) * 160ms);
+}
+
+@keyframes draw {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ---------- MRI ---------- */
+.mri {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(12px, 3vw, 32px);
+  padding-bottom: 22px;
+}
+
+.field {
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: radial-gradient(60% 70% at 50% 55%, rgba(233, 180, 111, 0.1), transparent 70%);
+}
+
+.arrow {
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  margin: -1px 0 0 -11px;
+  background: linear-gradient(90deg, transparent, rgba(244, 244, 246, var(--alpha)));
+  transform: rotate(var(--rot)) scaleX(var(--len));
+  transform-origin: center;
+  border-radius: 2px;
+}
+
+/* One breathing cycle at 0.19 Hz lasts about 5.3 s. */
+.play .arrow {
+  animation: breathe 5.3s var(--ease-in-out) infinite;
+}
+
+@keyframes breathe {
+  50% {
+    transform: rotate(calc(var(--rot) + 180deg)) scaleX(var(--len));
+  }
+}
+
+.mriStats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(8px, 2vw, 20px);
+}
+
+.mriStats div {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+  border-left: 1px solid var(--accent);
+}
+
+.mriStats strong {
+  font-family: var(--sans);
+  font-size: clamp(14px, 2.4vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.mriStats span {
+  font-size: clamp(9px, 1.1vw, 12px);
+  color: var(--faint);
+}
+
+/* ---------- CNN ---------- */
+.cnn {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: center;
+  gap: clamp(12px, 3vw, 36px);
+  padding-bottom: 22px;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, 18px);
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 4.5em 1fr 4.8em;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(10px, 1.2vw, 13px);
+}
+
+.barLabel {
+  color: var(--dim);
+}
+
+.barValue {
+  text-align: right;
+}
+
+.barTrack {
+  height: clamp(10px, 1.6vw, 16px);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: calc(var(--w) * 100%);
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(155, 123, 255, 0.35), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.play .bar {
+  animation: grow 1.6s var(--ease-out) forwards;
+  animation-delay: calc(var(--i) * 150ms);
+}
+
+@keyframes grow {
+  to {
+    transform: none;
+  }
+}
+
+.axis {
+  display: flex;
+  justify-content: space-between;
+  margin-left: calc(4.5em + 10px);
+  margin-right: calc(4.8em + 10px);
+  font-size: 10px;
+  color: var(--faint);
+}
+
+.agreement {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.agreement strong {
+  font-family: var(--sans);
+  font-size: clamp(22px, 4vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.agreement span {
+  font-size: clamp(10px, 1.2vw, 12px);
+  color: var(--faint);
+  line-height: 1.5;
+}
+
+/* ---------- Energy ---------- */
+.energy {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 22px;
+}
+
+.components {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 1vw, 10px);
+}
+
+.component {
+  display: grid;
+  grid-template-columns: 1.2em 7.5em 1fr;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(10px, 1.3vw, 13px);
+  color: var(--dim);
+}
+
+.component code {
+  font-family: inherit;
+  color: var(--text);
+}
+
+.component svg {
+  width: 100%;
+  height: clamp(18px, 3.4vw, 36px);
+}
+
+.compLine {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.total {
+  margin-top: 6px;
+  padding-top: clamp(6px, 1.2vw, 12px);
+  border-top: 1px solid var(--border-strong);
+  grid-template-columns: 1.2em 1fr;
+}
+
+.total code {
+  color: var(--warm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lines,
+  .component svg {
+    clip-path: none;
+  }
+
+  .bar {
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tile:nth-child(n + 3) {
+    display: none;
+  }
+
+  .legend {
+    display: none;
+  }
+
+  .cnn {
+    grid-template-columns: 1fr;
+  }
+
+  .mri {
+    grid-template-columns: 1fr auto;
+  }
+
+  .agreement {
+    display: none;
+  }
+}

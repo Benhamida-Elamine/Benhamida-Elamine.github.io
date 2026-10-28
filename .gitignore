@@ -1,0 +1,9 @@
+node_modules
+dist
+*.local
+.env
+.DS_Store
+Thumbs.db
+# Source assets kept outside the published site
+unnamed.jpg
+.claude/

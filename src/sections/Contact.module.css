@@ -1,0 +1,107 @@
+.contact {
+  position: relative;
+  padding: clamp(96px, 14vw, 180px) 0;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+  text-align: center;
+}
+
+.glow {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: min(900px, 120vw);
+  aspect-ratio: 2 / 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, rgba(155, 123, 255, 0.18), transparent);
+  pointer-events: none;
+}
+
+.contact :global(.eyebrow) {
+  justify-content: center;
+}
+
+.title {
+  position: relative;
+  margin: 22px auto 0;
+  max-width: 13ch;
+  font-size: clamp(44px, 8vw, 110px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 40px rgba(244, 244, 246, 0.18);
+}
+
+.title em {
+  background-position: 0 0;
+}
+
+.text {
+  position: relative;
+  margin: 28px auto 0;
+  max-width: 44ch;
+  font-size: 17px;
+  color: var(--dim);
+}
+
+.actions {
+  position: relative;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.email {
+  display: inline-flex;
+  align-items: center;
+  height: 54px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: clamp(14px, 3.6vw, 17px);
+  font-weight: 500;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.email:hover {
+  transform: translateY(-2px);
+}
+
+.copy {
+  height: 54px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  font-size: 15px;
+  min-width: 128px;
+}
+
+.copy:hover {
+  border-color: rgba(244, 244, 246, 0.4);
+}
+
+.links {
+  position: relative;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-size: 15px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--dim);
+}
+
+.links a:hover {
+  color: var(--text);
+}
